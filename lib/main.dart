@@ -61,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           children: [
             CachedNetworkImage(
-              imageUrl: "http://via.placeholder.com/350x150",
+              imageUrl: item['avatar'],
               placeholder: (context, url) => CircularProgressIndicator(),
               errorWidget: (context, url, error) => Icon(Icons.error),
             ),
@@ -85,7 +85,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     // call get json data function
     this.getJsonData();
