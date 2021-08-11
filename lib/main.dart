@@ -30,7 +30,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  late List data;
+  late List data = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _buildListView() {
     return ListView.builder(
       padding: const EdgeInsets.all(16.0),
-      itemCount: data == null ? 0 : data.length,
+      itemCount:  data.length,
       itemBuilder: (context, index) {
         return _buildImage(data[index]);
         // ListTile(
@@ -91,7 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
     this.getJsonData();
   }
 
-  Future<String> getJsonData() async {
+  Future<String?> getJsonData() async {
     var url = Uri.parse('https://reqres.in/api/users?page=2');
 
     var response = await http.get(url);
