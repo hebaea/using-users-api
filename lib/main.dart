@@ -44,13 +44,9 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _buildListView() {
     return ListView.builder(
       padding: const EdgeInsets.all(16.0),
-      itemCount:  data.length,
+      itemCount: data.length,
       itemBuilder: (context, index) {
         return _buildImage(data[index]);
-        // ListTile(
-        //   title: Text('data'),
-        //   subtitle: Text('name : '),
-        // );
       },
     );
   }
@@ -65,11 +61,6 @@ class _MyHomePageState extends State<MyHomePage> {
               placeholder: (context, url) => CircularProgressIndicator(),
               errorWidget: (context, url, error) => Icon(Icons.error),
             ),
-            // CircleAvatar(),
-            // ListTile(
-            //   title: Text('data'),
-            //   subtitle: Text('name : '),
-            // ),
             _buildRow(item)
           ],
         ),
@@ -97,6 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
     if (response.statusCode == 200) {
       var jsonResponse =
           convert.jsonDecode(response.body) as Map<String, dynamic>;
+      print(response.body);
       setState(() {
         data = jsonResponse['data'];
       });
